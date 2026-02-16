@@ -1,0 +1,98 @@
+export const demoVendedores = [
+  {
+    id: 'v1',
+    nombre: 'María García',
+    email: 'maria@charoruiz.com',
+    telefono: '+34 671 234 567',
+    zona: 'Ibiza Centro',
+    objetivoAnual: 250000,
+    ventasActuales: 187500,
+    clientesActivos: 24,
+    pedidosMes: 18,
+    avatar: 'MG',
+  },
+  {
+    id: 'v2',
+    nombre: 'Carlos López',
+    email: 'carlos@charoruiz.com',
+    telefono: '+34 672 345 678',
+    zona: 'San Antonio',
+    objetivoAnual: 200000,
+    ventasActuales: 156000,
+    clientesActivos: 19,
+    pedidosMes: 14,
+    avatar: 'CL',
+  },
+  {
+    id: 'v3',
+    nombre: 'Ana Martínez',
+    email: 'ana@charoruiz.com',
+    telefono: '+34 673 456 789',
+    zona: 'Santa Eulalia',
+    objetivoAnual: 180000,
+    ventasActuales: 162000,
+    clientesActivos: 21,
+    pedidosMes: 16,
+    avatar: 'AM',
+  },
+  {
+    id: 'v4',
+    nombre: 'Javier Ruiz',
+    email: 'javier@charoruiz.com',
+    telefono: '+34 674 567 890',
+    zona: 'Formentera',
+    objetivoAnual: 150000,
+    ventasActuales: 98000,
+    clientesActivos: 15,
+    pedidosMes: 10,
+    avatar: 'JR',
+  },
+];
+
+export const demoClientes = [
+  { id: 'c1', nombre: 'Boutique Es Paradís', contacto: 'Laura Vidal', email: 'laura@esparadis.com', zona: 'Ibiza Centro', vendedorId: 'v1', totalCompras: 45200, ultimoPedido: '2026-02-10' },
+  { id: 'c2', nombre: 'Hotel Ushuaïa', contacto: 'Roberto Sanz', email: 'roberto@ushuaia.com', zona: 'Playa d\'en Bossa', vendedorId: 'v1', totalCompras: 67800, ultimoPedido: '2026-02-08' },
+  { id: 'c3', nombre: 'Tienda Adlib', contacto: 'Carmen Torres', email: 'carmen@adlib.es', zona: 'Dalt Vila', vendedorId: 'v2', totalCompras: 32100, ultimoPedido: '2026-02-12' },
+  { id: 'c4', nombre: 'Pacha Shop', contacto: 'Diego Moreno', email: 'diego@pacha.com', zona: 'Ibiza Puerto', vendedorId: 'v2', totalCompras: 51400, ultimoPedido: '2026-01-28' },
+  { id: 'c5', nombre: 'Concept Store Marina', contacto: 'Isabel Navarro', email: 'isabel@marina.com', zona: 'Santa Eulalia', vendedorId: 'v3', totalCompras: 28900, ultimoPedido: '2026-02-14' },
+  { id: 'c6', nombre: 'Luxury Corner', contacto: 'Pedro Castillo', email: 'pedro@luxcorner.es', zona: 'San Antonio', vendedorId: 'v3', totalCompras: 39500, ultimoPedido: '2026-02-05' },
+  { id: 'c7', nombre: 'Es Pujols Fashion', contacto: 'Marta Díaz', email: 'marta@espujols.com', zona: 'Formentera', vendedorId: 'v4', totalCompras: 22300, ultimoPedido: '2026-02-01' },
+  { id: 'c8', nombre: 'Blue Marlin Boutique', contacto: 'Andrés Gil', email: 'andres@bluemarlin.com', zona: 'Cala Jondal', vendedorId: 'v1', totalCompras: 58600, ultimoPedido: '2026-02-13' },
+];
+
+export const demoPedidos = [
+  { id: 'p1', numero: 'PED-2026-001', clienteId: 'c1', clienteNombre: 'Boutique Es Paradís', vendedorId: 'v1', vendedorNombre: 'María García', fecha: '2026-02-14', estado: 'Pendiente', estadoPago: 'Pendiente', total: 4850, items: 12 },
+  { id: 'p2', numero: 'PED-2026-002', clienteId: 'c2', clienteNombre: 'Hotel Ushuaïa', vendedorId: 'v1', vendedorNombre: 'María García', fecha: '2026-02-13', estado: 'Aprobado', estadoPago: 'Parcial', total: 12300, items: 28 },
+  { id: 'p3', numero: 'PED-2026-003', clienteId: 'c3', clienteNombre: 'Tienda Adlib', vendedorId: 'v2', vendedorNombre: 'Carlos López', fecha: '2026-02-12', estado: 'Enviado', estadoPago: 'Pagado', total: 7200, items: 15 },
+  { id: 'p4', numero: 'PED-2026-004', clienteId: 'c5', clienteNombre: 'Concept Store Marina', vendedorId: 'v3', vendedorNombre: 'Ana Martínez', fecha: '2026-02-11', estado: 'En proceso', estadoPago: 'Pendiente', total: 5600, items: 10 },
+  { id: 'p5', numero: 'PED-2026-005', clienteId: 'c4', clienteNombre: 'Pacha Shop', vendedorId: 'v2', vendedorNombre: 'Carlos López', fecha: '2026-02-10', estado: 'Entregado', estadoPago: 'Pagado', total: 9400, items: 22 },
+  { id: 'p6', numero: 'PED-2026-006', clienteId: 'c8', clienteNombre: 'Blue Marlin Boutique', vendedorId: 'v1', vendedorNombre: 'María García', fecha: '2026-02-09', estado: 'Aprobado', estadoPago: 'Parcial', total: 15700, items: 35 },
+  { id: 'p7', numero: 'PED-2026-007', clienteId: 'c6', clienteNombre: 'Luxury Corner', vendedorId: 'v3', vendedorNombre: 'Ana Martínez', fecha: '2026-02-08', estado: 'Pendiente', estadoPago: 'Pendiente', total: 3200, items: 8 },
+  { id: 'p8', numero: 'PED-2026-008', clienteId: 'c7', clienteNombre: 'Es Pujols Fashion', vendedorId: 'v4', vendedorNombre: 'Javier Ruiz', fecha: '2026-02-07', estado: 'Cancelado', estadoPago: 'Pendiente', total: 2100, items: 5 },
+  { id: 'p9', numero: 'PED-2026-009', clienteId: 'c1', clienteNombre: 'Boutique Es Paradís', vendedorId: 'v1', vendedorNombre: 'María García', fecha: '2026-02-05', estado: 'Entregado', estadoPago: 'Pagado', total: 8900, items: 20 },
+  { id: 'p10', numero: 'PED-2026-010', clienteId: 'c2', clienteNombre: 'Hotel Ushuaïa', vendedorId: 'v1', vendedorNombre: 'María García', fecha: '2026-02-03', estado: 'Entregado', estadoPago: 'Pagado', total: 21500, items: 45 },
+];
+
+export const ventasMensuales = [
+  { mes: 'Ene', ventas: 85000, objetivo: 65000 },
+  { mes: 'Feb', ventas: 72000, objetivo: 65000 },
+  { mes: 'Mar', ventas: 91000, objetivo: 70000 },
+  { mes: 'Abr', ventas: 68000, objetivo: 70000 },
+  { mes: 'May', ventas: 95000, objetivo: 75000 },
+  { mes: 'Jun', ventas: 110000, objetivo: 80000 },
+  { mes: 'Jul', ventas: 135000, objetivo: 100000 },
+  { mes: 'Ago', ventas: 142000, objetivo: 100000 },
+  { mes: 'Sep', ventas: 98000, objetivo: 80000 },
+  { mes: 'Oct', ventas: 76000, objetivo: 70000 },
+  { mes: 'Nov', ventas: 64000, objetivo: 65000 },
+  { mes: 'Dic', ventas: 88000, objetivo: 75000 },
+];
+
+export const ventasPorZona = [
+  { zona: 'Ibiza Centro', ventas: 285000, porcentaje: 32 },
+  { zona: 'San Antonio', ventas: 178000, porcentaje: 20 },
+  { zona: 'Santa Eulalia', ventas: 162000, porcentaje: 18 },
+  { zona: 'Playa d\'en Bossa', ventas: 134000, porcentaje: 15 },
+  { zona: 'Formentera', ventas: 98000, porcentaje: 11 },
+  { zona: 'Otros', ventas: 36000, porcentaje: 4 },
+];
