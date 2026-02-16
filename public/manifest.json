@@ -1,0 +1,9 @@
+{
+  "short_name": "Charo Ruiz",
+  "name": "Charo Ruiz Ibiza - Dashboard de Ventas",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#D4AF37",
+  "background_color": "#F8F6F1"
+}
