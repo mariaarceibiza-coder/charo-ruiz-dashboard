@@ -1,0 +1,13 @@
+# Git configuration example
+# Ejecuta: git config --global user.name "Tu Nombre" 
+# Y: git config --global user.email "tu@email.com"
+
+[user]
+    name = Tu Nombre
+    email = tu@email.com
+
+[core]
+    excludesfile = .gitignore
+
+[push]
+    default = current
