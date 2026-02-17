@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Eye, EyeOff, ShoppingBag } from 'lucide-react';
 import { COLORS, ROLES } from '../utils/constants';
 
@@ -6,6 +7,40 @@ const Login = ({ onDemoLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
+
+  const roleRoutes = {
+    [ROLES.ADMIN]: '/admin/dashboard',
+    [ROLES.VENDEDOR]: '/vendedor/dashboard',
+    [ROLES.CLIENTE]: '/cliente/portal',
+  };
+
+  const handleDemoLoginAndNavigate = (role) => {
+    onDemoLogin(role);
+    navigate(roleRoutes[role]);
+  };
+
+  const handleFormLogin = (e) => {
+    e.preventDefault();
+    if (!email || !password) {
+      setError('Introduce email y contrase\u00f1a');
+      return;
+    }
+    // Demo credentials mapping
+    const demoCredentials = {
+      'admin@charoruiz.com': ROLES.ADMIN,
+      'maria@charoruiz.com': ROLES.VENDEDOR,
+      'laura@esparadis.com': ROLES.CLIENTE,
+    };
+    const role = demoCredentials[email.toLowerCase()];
+    if (role) {
+      onDemoLogin(role);
+      navigate(roleRoutes[role]);
+    } else {
+      setError('Credenciales no v\u00e1lidas. Usa los botones de demo.');
+    }
+  };
 
   return (
     <div style={styles.container}>
@@ -57,7 +92,11 @@ const Login = ({ onDemoLogin }) => {
             </div>
           </div>
 
-          <button style={styles.loginButton}>
+          {error && (
+            <div style={styles.errorMsg}>{error}</div>
+          )}
+
+          <button onClick={handleFormLogin} style={styles.loginButton}>
             Iniciar Sesión
           </button>
 
@@ -69,7 +108,7 @@ const Login = ({ onDemoLogin }) => {
 
           <div style={styles.demoButtons}>
             <button
-              onClick={() => onDemoLogin(ROLES.ADMIN)}
+              onClick={() => handleDemoLoginAndNavigate(ROLES.ADMIN)}
               style={{ ...styles.demoButton, ...styles.demoAdmin }}
             >
               <span style={styles.demoButtonIcon}>👑</span>
@@ -80,7 +119,7 @@ const Login = ({ onDemoLogin }) => {
             </button>
 
             <button
-              onClick={() => onDemoLogin(ROLES.VENDEDOR)}
+              onClick={() => handleDemoLoginAndNavigate(ROLES.VENDEDOR)}
               style={{ ...styles.demoButton, ...styles.demoVendedor }}
             >
               <span style={styles.demoButtonIcon}>💼</span>
@@ -91,7 +130,7 @@ const Login = ({ onDemoLogin }) => {
             </button>
 
             <button
-              onClick={() => onDemoLogin(ROLES.CLIENTE)}
+              onClick={() => handleDemoLoginAndNavigate(ROLES.CLIENTE)}
               style={{ ...styles.demoButton, ...styles.demoCliente }}
             >
               <span style={styles.demoButtonIcon}>🛍️</span>
@@ -225,6 +264,15 @@ const styles = {
     cursor: 'pointer',
     color: COLORS.text_light,
     padding: 4,
+  },
+  errorMsg: {
+    background: '#fde8e8',
+    color: '#c62828',
+    padding: '10px 14px',
+    borderRadius: 8,
+    fontSize: 13,
+    marginBottom: 8,
+    textAlign: 'center',
   },
   loginButton: {
     width: '100%',

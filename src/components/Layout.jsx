@@ -4,10 +4,12 @@ import {
   LogOut, ChevronLeft, ChevronRight, ShoppingBag, User, FileText,
   TrendingUp, Package, Bell
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { COLORS } from '../utils/constants';
 
-const Layout = ({ children, user, onLogout, activeTab, onTabChange, tabs }) => {
+const Layout = ({ children, user, onLogout, activeTab, basePath, tabs }) => {
   const [collapsed, setCollapsed] = useState(false);
+  const navigate = useNavigate();
 
   const iconMap = {
     dashboard: LayoutDashboard,
@@ -53,7 +55,7 @@ const Layout = ({ children, user, onLogout, activeTab, onTabChange, tabs }) => {
             return (
               <button
                 key={tab.id}
-                onClick={() => onTabChange(tab.id)}
+                onClick={() => navigate(`${basePath}/${tab.id}`)}
                 style={{
                   ...styles.navItem,
                   ...(isActive ? styles.navItemActive : {}),
@@ -68,7 +70,7 @@ const Layout = ({ children, user, onLogout, activeTab, onTabChange, tabs }) => {
         </nav>
 
         <div style={styles.sidebarFooter}>
-          <button onClick={onLogout} style={styles.logoutBtn}>
+          <button onClick={() => { onLogout(); navigate('/login'); }} style={styles.logoutBtn}>
             <LogOut size={18} color={COLORS.text_light} />
             {!collapsed && <span style={styles.logoutText}>Cerrar Sesión</span>}
           </button>

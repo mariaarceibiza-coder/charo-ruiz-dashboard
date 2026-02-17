@@ -2,28 +2,32 @@
   "name": "charo-ruiz-dashboard",
   "version": "1.0.0",
   "description": "Dashboard de gestión de ventas, clientes y objetivos para Charo Ruiz Ibiza con IA integrada",
+  "homepage": "https://mariaarceibiza-coder.github.io/charo-ruiz-dashboard",
   "private": true,
   "dependencies": {
+    "axios": "^1.6.2",
+    "firebase": "^10.7.0",
+    "lucide-react": "^0.263.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "firebase": "^10.7.0",
-    "recharts": "^2.10.3",
-    "lucide-react": "^0.263.1",
     "react-router-dom": "^6.20.0",
-    "axios": "^1.6.2",
+    "react-scripts": "5.0.1",
+    "recharts": "^2.10.3",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "gh-pages": "^6.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [

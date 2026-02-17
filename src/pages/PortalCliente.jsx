@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useParams } from 'react-router-dom';
 import {
   ShoppingCart, Package, FileText, Clock,
   CheckCircle, Truck, XCircle, AlertCircle
@@ -9,7 +10,8 @@ import { formatearDinero } from '../utils/helpers';
 import { demoClientes, demoPedidos } from '../data/demoData';
 
 const PortalCliente = ({ user, onLogout }) => {
-  const [activeTab, setActiveTab] = useState('portal');
+  const { tab } = useParams();
+  const activeTab = tab || 'portal';
 
   const tabs = [
     { id: 'portal', label: 'Mi Portal' },
@@ -257,7 +259,7 @@ const PortalCliente = ({ user, onLogout }) => {
   };
 
   return (
-    <Layout user={{ ...user, nombre: cliente.contacto }} onLogout={onLogout} activeTab={activeTab} onTabChange={setActiveTab} tabs={tabs}>
+    <Layout user={{ ...user, nombre: cliente.contacto }} onLogout={onLogout} activeTab={activeTab} basePath="/cliente" tabs={tabs}>
       {renderContent()}
     </Layout>
   );
