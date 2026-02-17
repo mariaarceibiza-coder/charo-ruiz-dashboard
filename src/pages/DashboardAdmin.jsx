@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import {
   TrendingUp, TrendingDown, Users, ShoppingCart,
   DollarSign, Target, Eye, Search, ChevronDown,
@@ -39,7 +40,8 @@ const StatCard = ({ title, value, change, positive, icon: Icon, color }) => (
 );
 
 const DashboardAdmin = ({ user, onLogout }) => {
-  const [activeTab, setActiveTab] = useState('dashboard');
+  const { tab } = useParams();
+  const activeTab = tab || 'dashboard';
   const [searchTerm, setSearchTerm] = useState('');
 
   const tabs = [
@@ -437,7 +439,7 @@ const DashboardAdmin = ({ user, onLogout }) => {
   };
 
   return (
-    <Layout user={user} onLogout={onLogout} activeTab={activeTab} onTabChange={setActiveTab} tabs={tabs}>
+    <Layout user={user} onLogout={onLogout} activeTab={activeTab} basePath="/admin" tabs={tabs}>
       {renderContent()}
     </Layout>
   );
