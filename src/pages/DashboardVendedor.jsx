@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import {
   TrendingUp, Users, ShoppingCart, DollarSign, Target,
   ArrowUpRight, ArrowDownRight, Search, Calendar
@@ -13,7 +14,8 @@ import { formatearDinero } from '../utils/helpers';
 import { demoVendedores, demoClientes, demoPedidos, ventasMensuales } from '../data/demoData';
 
 const DashboardVendedor = ({ user, onLogout }) => {
-  const [activeTab, setActiveTab] = useState('dashboard');
+  const { tab } = useParams();
+  const activeTab = tab || 'dashboard';
   const [searchTerm, setSearchTerm] = useState('');
 
   const tabs = [
@@ -252,7 +254,7 @@ const DashboardVendedor = ({ user, onLogout }) => {
   };
 
   return (
-    <Layout user={user} onLogout={onLogout} activeTab={activeTab} onTabChange={setActiveTab} tabs={tabs}>
+    <Layout user={user} onLogout={onLogout} activeTab={activeTab} basePath="/vendedor" tabs={tabs}>
       {renderContent()}
     </Layout>
   );
